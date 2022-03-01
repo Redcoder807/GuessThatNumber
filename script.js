@@ -25,7 +25,7 @@ while (restartGame){
     // Using parseInt to attempt to convert the user's response into a number value
     rangeNum = parseInt(rangeNum)
 
-    // verifies thw user's entry for a range number is a number greater than zero (NOTE: All number, positive or negative, have default boolean value of true, except for zero which has a default booleans value of false. ALso, NaN has a default boolean value of false as well)
+    // Verifies thw user's entry for a range number is a number greater than zero (NOTE: All number, positive or negative, have default boolean value of true, except for zero which has a default booleans value of false. ALso, NaN has a default boolean value of false as well)
     while (!rangeNum || rangeNum < 1){
         rangeNum = prompt(enterNumText);
         rangeNum = parseInt(rangeNum);
@@ -33,6 +33,17 @@ while (restartGame){
 
     // Creates the random number using the range number entered by the user
     randomNum = Math.floor(Math.random() * rangeNum + 1)
+
+    // Prompts user to enter a number of attempts allowed (AKA Number of guesses)
+    attempts = parseInt(prompt(`Please enter a number of attempts allowed: `));
+
+// Verifying the user's entry for a number of attempts allowed is a number greater than zero and less than the range they set
+while (!attempts || attempts < 1 || attempts  rangeNum){
+    attempts = parseInt(prompt(`Please enter a number from 1 to ${rangeNum -1}:`));
+}
+
+// Asks user to enter a guess in the range that they set
+prompt(`Please enter a guess from 1 to ${rangeNum}. You have ${attempts} attempt(s) left:`)
 
     break;
 }
